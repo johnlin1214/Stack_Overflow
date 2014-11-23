@@ -1,0 +1,37 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Sign Up</a></h1>
+    </li>
+
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="active"><a href="#"><%= link_to 'Ask A Question', new_question_path %></a></li>
+    </ul>
+</nav>
+
+
+<div class="row">
+   <div class="large-3 large-centered columns">
+    <h1>Stack Overflow</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Stack Questions</h1>
+    <ol>
+      <% @questions.order(id: :desc).each do |question| %>
+        <li><%= link_to question.title, question_path(question) %></li>
+          <%= link_to 'edit', edit_question_path(question) %>
+          <%= link_to 'delete', question_path(question),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <hr />
+      <% end %>
+    <ol>
+  </div>
+</div>
+
