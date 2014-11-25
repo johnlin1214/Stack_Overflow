@@ -1,5 +1,11 @@
 
 
+<div class="row">
+  <div class="large-12 columns">
+    <h2>Question</h2>
+  </div>
+</div>
+
 
 <div class="row">
   <div class="large-12 columns">
@@ -7,21 +13,44 @@
       <strong>Title:</strong>
       <%= @question.title %>
     </p>
-
     <p>
       <strong>Content:</strong>
       <%= @question.content %>
     </p>
-
   </div>
 </div>
-
-
 
 <div class="row">
   <div class="large-12 columns">
-  <%= link_to 'Back', "/" %>
+    <ul>
+      <% @answers.each do |answer| %>
+      <li><%= answer.response %></li>
+      <% end %>
+      <ul>
+      </div>
+    </div>
 
-  </div>
-</div>
+    <div class="row">
+      <div class="large-12 columns">
+        <h3>Answer this question</h3>
+        <%= form_for [@question] do |f| %>
+
+        <p>
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </p>
+
+        <p>
+          <%= f.label :content %><br>
+          <%= f.text_area :content, :size => "20x10" %>
+        </p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <%= link_to 'Back', "/" %>
+      </div>
+    </div>
 
