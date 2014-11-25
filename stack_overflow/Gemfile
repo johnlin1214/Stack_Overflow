@@ -42,8 +42,8 @@ gem 'faker'
 
 
 group :development do
-  # gem 'better_errors' # First two is good
-  # gem 'binding_of_caller'
+  gem 'better_errors' # First two is good
+  gem 'binding_of_caller'
   # gem 'meta_request' # works with rails extension
   # gem 'irbtools'
   # gem 'terminal-notifier'
